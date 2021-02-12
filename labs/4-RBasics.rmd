@@ -1,0 +1,218 @@
+---
+title: "R Basics"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. For assignments, we won't need to use Markdown, we'll use the standard workspace.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r print statements}
+print("Hello World") # comments are made using the '#' sign, same as in Python
+```
+
+## Math Operators
+
+R is a programming language for statistical computing and graphics. It's great for advanced statistical inference
+and data mining, as we'll see throughout the R modules. R uses similar syntax as Python for mathematical operations:
+
+```{r operators}
+5+5
+5-1
+5*2
+4/2
+4^2
+#or
+4**2
+```
+
+There's also logical operators:
+
+```{r logic}
+4>2
+2>4
+2>=2 # greater than or equal to
+2==2 # exactly equal
+4!=2 # not equal to
+```
+
+## Variables
+
+Most of the time, we'll want to store data in variables. R also understands operations on variables. 
+
+```{r variables}
+x <- 2
+y <- 3
+z <- x + y
+z
+```
+
+## Data Types
+
+The two most common numeric classes in R are integers and doubles, and does automatic conversion between these classes for operations. Numbers are immediately cast as doubles, but you can `type cast`, or coerce, values to be an integer. 
+
+```{r doubles}
+typeof(3) # notice this will still be a double
+
+x <- 3.0 # R recognizes to drop the 0
+x
+typeof(x)
+y <- 3.5
+y
+typeof(y)
+y <- as.integer(y)
+y # type casting y will truncate the original value
+typeof(y)
+```
+
+Variables are not limited to storing numbers:
+
+```{r other data types}
+
+myName <- "Ksenia Arzumanova"
+myName
+is.character(myName) # in R, strings data types are known as characters
+```
+```{r vectors}
+myList <- c(1,2,3) # create a vector/list using 'c()' - stands for container
+myList
+
+anotherList <- c("a", "b", "c")
+anotherList 
+
+myList[2]
+anotherList[2]
+```
+
+Note: Unlike Python, R starts indexing at `1`, instead of `0`.
+
+## Data structures
+
+### Matrices
+Homogeneous collection of datasets (all values must of the same data type). 
+
+```{r matrix}
+A = matrix(c(11, 22, 33, 44, 55, 66), nrow = 2, ncol = 3, byrow = TRUE) # filled by rows
+A
+B = matrix(c(11, 22, 33, 44, 55, 66), nrow = 2, ncol = 3, byrow = FALSE) # filled by columns
+B
+```
+
+To extract a particular value, the syntax is `mat[row, col]`. You can leave both values blank, which will return all the values; leave one blank and it'll return all the values for that particular row or column.
+
+```{r matrix cont}
+B[,] # the whole matrix
+B[2, ] # second row, all of the columns
+B[ , 1] # all rows, first column
+B[2, 1] # second row, first column
+```
+
+### Dataframes
+
+Heterogeneous collection of data tables (can contain multiple data types). It is a general form of a matrix. Columns are called `fields`. Dataframes provide a very flexible and intuitive way of organizing and extracting data. 
+
+```{r dataframes}
+df <- data.frame(geneIndex = c(1, 2, 3), geneID = c(92231, 2313, 5641), geneName = c("FOS1", "JUN", "BERP"))
+df
+```
+
+You can extract values from a dataframe similarly to how you would from a matrix.
+
+```{r dataframes cont}
+df[1, 2]
+```
+
+Or, you can use the field names by using the `$` symbol.
+
+```{r fields}
+df$geneID # all of the rows that belong to geneID
+df$geneID[2] # second row under geneID
+```
+
+Here's some examples of matching values, though there's other ways we can do this:
+
+```{r matching}
+which(df$geneID == 2313) # returns the row for which the condition returns 'true'
+df$geneName[df$geneID == 2313]
+```
+
+There are some built-in datasets in base R, such as the `cars` or `pressure` datasets. You can find a list of these datasets by typing in `data()`. These are useful to play around with R capabilities without having to import your own data. Here's some examples of how we can retrieve some general information about datasets without performing any manual operations ourselves.
+
+```{r cars}
+class(cars) # here I don't use 'typeof()', because there's a hierarchy between that and 'class()' - 'typeof()' returns the data types of the elements of the object, in this case they would be of type 'list'. If we used 'class()' on doubles, it would return type 'numeric', because integers and doubles belong to the class 'numeric'
+
+str(cars) # displays the internal structure of the object
+head(cars, n=5) # first 5 rows
+tail(cars, n=5) # last 5 rows
+dimnames(cars) # names of the dimensions - first element will return a list of rownames, second will be a list of column/field names
+summary(cars) # returns summary statistics, such as min, max, mean, and quartile information
+```
+
+## Plotting
+
+(Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.)
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+When plotting a dataframe with only two fields, the base R function `plot` interprets the first field to be the x-axis, and the second field to be the y-axis. If the dataframe contains more than two fields, you will need to be more explicit in the plot statement:
+
+```{r mtcars}
+dimnames(mtcars)[2] # field names
+plot(mtcars$hp, mtcars$mpg) # defaults to scatter plot
+plot(mtcars$hp, mtcars$mpg, type = 'b') # tries to connect lines between points (not always meaningful)
+plot(mtcars$hp, mtcars$mpg, type = 'h') # histogram-like lines
+```
+
+`ggplot2` is another great package that allows for a lot of plotting versatility that we'll be using later on.
+
+## Probability Distributions
+
+The `stats` package has functionality to handle various probability distributions. There are 4 functions we can use for dealing with the normal distribution: `dnorm` gives us the densities, or probabilities, of variates; `pnorm` gives us the cumulative density to the left of a variate; `qnorm` is the opposite of `pnorm` and gives us the exact points at which the normal distribution has a particular cumulative density; finally, `rnorm` generates random variates from the normal distribution. These functions default the `mean` of the normal distribution to 0, and the `sd` to 1.
+
+Brief refresher on critical values:
+
+```{r pnorm}
+pnorm(0) # should be intuitive, because half of the normal distribution is to the left of 0 
+pnorm(1.96) # 1.96 should look familiar as one of the critical values for an approximate 95% confidence interval 
+pnorm(-1.96) # however these critical values are for a two-tailed test (for a significance level of 5%)
+pnorm(1.96)-pnorm(-1.96)
+
+```
+
+To prove to you that `pnorm` and `qnorm` are opposites:
+
+```{r qnorm}
+qnorm(c(0.025, 0.975))
+pnorm(qnorm(c(0.025, 0.975)))
+
+```
+
+```{r tree height, echo = FALSE}
+hist(trees$Height, main = "Histogram of Black Cherry Tree Heights", freq = FALSE)
+```
+
+The above histogram looks approximately normal. We can check this by drawing random variates from a normal distribution. 
+
+```{r normal distribution}
+x <- rnorm(1000) # generate 1000 random variates from the normal distribution
+y <- dnorm(x) # calculate the densities, or probabilities, of each variate from x
+hist(x, freq = FALSE) # setting `freq = FALSE` transforms the y-axis to density rather than frequency
+plot(x,y) # alternative representation
+```
+
+Our axes are off, however, between the histogram of tree height and the normal distribution curves. We can remedy this by changing our `mean` and `sd` to better represent that of the tree height distribution.
+
+```{r comparing tree heigh and normal distribution}
+x <- rnorm(1000, mean = mean(trees$Height), sd = sd(trees$Height))
+y <- dnorm(x, mean = mean(trees$Height), sd = sd(trees$Height))
+hist(trees$Height, freq = FALSE)
+points(x, y)
+```
