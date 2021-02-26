@@ -1,0 +1,98 @@
+---
+title: "IB 120/201 - Homework 6"
+author: 'GSI: Ksenia Arzumanova'
+date: 'Due: March 5, 2021 by 12:59pm PST'
+output:
+  html_document: default
+subtitle: Basic Probability & The Binomial Distribution
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##### A couple plans to have 3 children. Letting 'G' denote girl and 'B' denote boy, the sample space of the sex of the couple's three children looks like this: {GGG, GGB, GBG, BGG, BBG, BGB, GBB, BBB}. By simply counting the number of outcomes in the sample space that are relevant, answer the following questions 1-3:
+
+## Question 1
+
+What is the probability that the first child is a girl? (I'll refer to this as event A)
+
+``` {r q1}
+q1 <- NULL
+```
+
+## Question 2
+
+What is the probability that the second child is a girl? (I'll refer to this as event B)
+
+``` {r q2}
+q2 <- NULL
+```
+
+## Question 3
+
+What is the probability that the second child is a girl, given that the first child is a girl?
+
+``` {r q3}
+q3 <- NULL
+```
+
+## Question 4
+
+Using the definition of conditional probability, confirm your answer in part 3 (you can create a new variable for each component of the definition, pass the appropriate probability to that value, and then express `q4` through those variables). Are A & B independent? Briefly explain why or why not.
+
+``` {r q4}
+q4 <- NULL
+# enter explanation here - you can either type out the mathematical explanation or explain in words
+```
+
+##### Answers parts 5-7 based on the following: Suppose we have a test for the flu that is positive 90% of the time when tested on a flu patient, and is negative 95% of the time when tested on a healthy person. We also know that the flu is affecting about 1% of the population. 
+
+## Question 5
+
+Build a contingency table from the information above. Let:  
+T+ : positive test  
+T- : negative test  
+F+ : (truly) positive for the flu  
+F- : (truly) negative for the flu (healthy)  
+
+(We do, in fact, have enough information above to fill out an entire table. It will just require writing out what conditional probabilities you are already given, and then rearranging them).
+
+``` {r q5}
+table <- data.frame('T.pos' = c(NA, NA), 'T.neg' = c(NA, NA), row.names = c("F.pos", "F.neg"))
+tPos_fPos <- NA
+tPos_fNeg <- NA
+tNeg_fPos <- NA
+tNeg_fNeg <- NA
+
+table$T.pos[1] <- tPos_fPos
+table$T.pos[2] <- tPos_fNeg
+table$T.neg[1] <- tNeg_fPos
+table$T.neg[2] <- tNeg_fPos
+```
+
+## Question 6
+
+What is the probability of a false positive (P(T+|F-))?
+
+``` {r q6}
+q6 <- NULL
+```
+
+### Question 7
+
+Suppose you tested positive. What is the positive predictive value?
+
+``` {r q7}
+q7 <- NULL
+```
+
+### Question 8
+
+Fifteen (15) indistinguishable pigs are available to use in a study to compare three (3) different diets. Each of the diets (let's say, A, B, C) is to be used on five randomly selected pigs. In how many ways can the diets be assigned to the pigs? (You can use the function `factorial()` to calculate factorials.)
+
+``` {r q8}
+q8 <- NULL
+```
+
+
