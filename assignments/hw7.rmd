@@ -1,0 +1,73 @@
+---
+title: "IB 120/201 - Homework 7"
+author: 'GSI: Ksenia Arzumanova'
+date: 'Due: March 12, 2021 by 12:59pm PST'
+output:
+  html_document: default
+subtitle: Markov Chains
+---
+
+```{r setup, include=FALSE}
+library(expm)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Use R code introduced in lab to calculate probabilities using matrices.**
+
+Use the following to answer questions 1-2: In the Dark Ages, Harvard, Dartmouth, and Yale admitted only male students. Assume that, at that time, 80 percent of the sons of Harvard men went to Harvard and the rest went to Yale, 40 percent of the sons of Yale men went to Yale, and the rest split evenly between Harvard and Dartmouth; and of the sons of Dartmouth men, 70 percent went to Dartmouth, 20 percent to Harvard, and 10 percent to Yale. 
+
+## Question 1
+
+Write out the transition probability matrix. Find the probability that the grandson of a man from Harvard went to Harvard. 
+
+```{r q1}
+q1 <- NULL
+```
+
+## Question 2
+
+Modify the above by assuming that the son of a Harvard man always went to Harvard. Again, find the probability that the grandson of a man from Harvard went to Harvard.
+
+```{r q2}
+q2 <- NULL
+```
+
+Use the following to answer questions 3-4: Consider an experiment of mating rabbits. We watch the evolution of a particular gene that appears in two types (alleles), G or g. A rabbit has a pair of genes, either GG (dominant), Gg (hybrid–the order is irrelevant, so gG is the same as Gg) or gg (recessive). In mating two rabbits, the offspring inherits a gene from each of its parents with equal probability. Thus, if we mate a dominant (GG) with a hybrid (Gg), the offspring is dominant with probability 1/2 or hybrid with probability 1/2. Start with a rabbit of given character (GG, Gg, or gg) and mate it with a hybrid. The offspring produced is again mated with a hybrid, and the process is repeated through a number of generations, always mating with a hybrid.
+
+## Question 3
+
+Write down the transition probabilities of the Markov chain (Hint: recall Punnett squares! If you don't remember, a quick Google image search should do the trick).
+
+```{r q3}
+q3 <- NULL
+```
+
+## Question 4
+
+Assume that we start with a hybrid rabbit. Let $\mu n$ be the probability distribution of the character of the rabbit of the $n^{th}$ generation. In other words, $\mu n$(GG), $\mu n$(Gg), $\mu n$(gg) are the probabilities that the $n^{th}$ generation rabbit is GG, Gg, or gg, respectively. Compute $\mu_2$, $\mu_3$, $\mu_4$. What do you notice about $\mu n$ in general? (Create as many new variables or cells you want in order to show each $n^{th}$-generation matrix.)
+
+```{r q4}
+q4 <- NULL
+```
+
+[**Fun explanation for #2 once you've solved it**:
+
+Actually the probabilities are the same for any $i \in N$. If you obtained this result before 1858 when Gregor Mendel started to breed garden peas in his monastery garden and analysed the offspring of these matings, you would probably be very famous because it definitely looks like a law! This is what Mendel found when he crossed mono-hybrids. In a more general setting, this law is known as Hardy-Weinberg law.]
+
+Use the following to answer questions 5-6: A certain calculating machine uses only the digits 0 and 1. It is supposed to transmit one of these digits through several stages. However, at every stage, there is a probability $p$ that the digit that enters this stage will be changed when it leaves and a probability $q = 1 − p$ that it won’t. Form a Markov chain to represent the process of transmission by taking as states the digits 0 and 1. 
+
+## Question 5
+
+What is the matrix of transition probabilities? 
+
+```{r q5}
+q5 <- NULL
+```
+
+## Question 6
+
+Now draw a Markov chain diagram and assign probabilities assuming that the process begins in state 0 and moves through two stages of transmission (do this for yourself on a sheet of paper - no need to submit the diagram). What is the probability that the machine, after two stages, produces the digit 0 (i.e., the correct digit)? (This question doesn't need any R code - submit the answer below as an expression.)
+
+```{r q6}
+q6 <- NULL
+```
