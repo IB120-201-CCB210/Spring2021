@@ -1,0 +1,79 @@
+---
+title: "IB 120/201 - Homework 8"
+author: 'GSI: Ksenia Arzumanova'
+date: 'Due: March 19, 2021 by 12:59pm PST'
+output:
+  html_document: default
+subtitle: SD and SEM
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+
+# Practice writing functions
+## Question 1
+
+Create a function that calculates the mean of a vector. Run it on `x` and do a sanity check with the `mean()` function. 
+
+```{r q1}
+x <- rnorm(5, 25, 5)
+q1 <- NULL
+```
+
+## Question 2
+
+Create a function that calculates the standard deviation of a vector. Run it on `x` and do a sanity check with the `sd()` function.
+
+```{r q2}
+q2 <- NULL
+```
+
+## Question 3
+
+Create a function that calculates the standard error of the mean of a vector. Run it on `x`. 
+
+```{r q3}
+q3 <- NULL
+```
+
+# Understanding SD and SEM
+## Question 4
+
+```{r q4_setup}
+# create two more vectors of varying sample sizes from the same distribution as `x`
+y <- rnorm(50, 25, 5)
+z <- rnorm(1000, 25, 5)
+
+#merge the vectors into a data.frame
+data <- data.frame(sample=rep(c("x", "y", "z"), times=c(5,50,1000)), obs = c(x,y,z))
+
+#calculates mean, sd, sem
+my_sum <- data %>%
+  group_by(sample) %>%
+  summarise( 
+    n=n(),
+    mean=mean(obs),
+    sd=sd(obs)
+  ) %>%
+  mutate( se=sd/sqrt(n))  
+
+my_sum
+```
+
+Plot bar plots of the means of each vector. Add error bars using standard deviation. Knowing that our samples are taken from a distribution with mean=25, and sd=5, what trend do you notice in the standard deviation across the vectors of samples? Specifically reference how the trend correlates with the vectors of samples. 
+
+```{r q4}
+q4 <- NULL
+```
+
+## Question 5
+
+Now plot error bars using the standard error of the means. What trend do you notice in the SEM across the vectors of samples? Specifically reference how the trend correlates with the vectors of samples.
+
+```{r q5}
+q5 <- NULL
+```
+
