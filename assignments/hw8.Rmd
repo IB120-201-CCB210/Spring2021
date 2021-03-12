@@ -16,7 +16,7 @@ library(dplyr)
 # Practice writing functions
 ## Question 1
 
-Create a function that calculates the mean of a vector. Run it on `x` and do a sanity check with the `mean()` function. 
+Create a function that calculates the sample mean of a vector. Run it on `x` and do a sanity check with the `mean()` function. 
 
 ```{r q1}
 x <- rnorm(5, 25, 5)
@@ -25,7 +25,7 @@ q1 <- NULL
 
 ## Question 2
 
-Create a function that calculates the standard deviation of a vector. Run it on `x` and do a sanity check with the `sd()` function.
+Create a function that calculates the sample standard deviation of a vector. Run it on `x` and do a sanity check with the `sd()` function.
 
 ```{r q2}
 q2 <- NULL
