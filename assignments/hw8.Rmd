@@ -63,7 +63,7 @@ my_sum <- data %>%
 my_sum
 ```
 
-Plot bar plots of the means of each vector. Add error bars using standard deviation. Knowing that our samples are taken from a distribution with mean=25, and sd=5, what trend do you notice in the standard deviation across the vectors of samples? Specifically reference how the trend correlates with the vectors of samples. 
+Plot bar plots of the means of each vector. Add error bars using standard deviation. Knowing that our samples are taken from a distribution with mean=25, and sd=5, what trend do you notice in the sample standard deviation across the vectors of samples? Specifically reference how the trend correlates with the vectors of samples. 
 
 ```{r q4}
 q4 <- NULL
@@ -71,7 +71,7 @@ q4 <- NULL
 
 ## Question 5
 
-Now plot error bars using the standard error of the means. What trend do you notice in the SEM across the vectors of samples? Specifically reference how the trend correlates with the vectors of samples.
+Now plot error bars using the standard error of the means. What trend do you notice in the sample SEM across the vectors of samples? Specifically reference how the trend correlates with the vectors of samples.
 
 ```{r q5}
 q5 <- NULL
