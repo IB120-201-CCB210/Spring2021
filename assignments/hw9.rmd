@@ -1,0 +1,116 @@
+---
+title: "IB 120/201 - Homework 9"
+author: 'GSI: Ksenia Arzumanova'
+date: 'Due: April 2, 2021 by 12:59pm PST'
+output:
+  html_document: default
+subtitle: Modeling DNA Evolution
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Background:
+
+According to the Jukes and Cantor 1969 (JC69) model, the probability that two nucleotides are identical to each other is:
+
+$\frac{1}{4}+\frac{3}{4}e^{-4\lambda/3}$
+
+and the probability that two nucleotides differ from each other is:
+
+$\frac{1}{4}-\frac{1}{4}e^{-4\lambda/3}$
+
+So the likelihood function, assuming independence among sites, if $d$ out of $S$ nucleotides differ between the two sequences is:
+$L(\lambda) = \left(\frac{1}{4}+\frac{3}{4}e^{-4\lambda/3}\right)^{S-d}\left(\frac{1}{4}-\frac{1}{4}e^{-4\lambda/3}\right)^d$
+
+### Question 1
+
+Read in the two sequences using the function provided and calculate the number of pairwise differences $d$.
+
+```{r q1}
+x <- read.table('hw_09_data.txt',sep = '\t')
+seq1 <- strsplit(as.vector(x$V1[2]),split = '')[[1]]
+seq2 <- strsplit(as.vector(x$V1[3]),split = '')[[1]]
+
+S <- NULL
+d <- NULL
+```
+
+### Question 2
+
+Implement a likelihood function based on the JC69 model. The likelihood function is parameterized in terms of $\lambda$ which is the genetic distance. $\lambda$ is proportional to the mutation rate and the amount of time the two species have been diverging from each other. The type of genetic distance is fundamental in many phylogenetic studies and other studies comparing DNA sequences.
+
+```{r q2}
+
+```
+
+### Question 3
+
+Create an R function that calculates the logarithm of the likelihood. This function requires $\lambda$ as an argument. Plot the log-likelihood function as a function of varying $\lambda$ values.  
+
+```{r q3}
+log_like <- function(lambda){
+  
+}
+
+lSeq <- seq(0, 1, by=0.01)
+ySeq <- c()
+for(l in lSeq){
+  y <- append(ySeq, log_like(l))
+}
+
+```
+
+### Question 4
+
+With a starting value of 0.5, use the `optim()` function in R to optimize the log-likelihood function for $\lambda$. Does this value match the one observed in the plot?
+
+```{r q4}
+
+```
+
+### Question 5
+
+Transitions (changes between A and G and between C and T) tend to occur at a higher rate than transversions (all other changes). Calculate the number of transitions $ds$ and the number of transversions $dv$ from the two sequences. The Kimura two-parameter (K2P) model is specified in terms of two parameters $\alpha$ and $\beta$. These two parameters can be interpreted as the rate of ransitions and transversions per unit time, respectively, multiplied by the total amount of time. The likelihood function under this model is:
+$L(\alpha, \beta) = \left(\frac{1}{4}+\frac{1}{4}e^{-4\beta}+\frac{1}{2}e^{-2(\alpha+\beta)}\right)^{S-dv-ds}\left(\frac{1}{4}+\frac{1}{4}e^{-4\beta}-\frac{1}{2}e^{-2(\alpha+\beta)}\right)^{ds}\left(\frac{1}{4}-\frac{1}{4}e^{-4\beta}\right)^{dv}$.
+
+Make a function in R that calculates the logarithm of this likelihood. It should take a single vector $\theta$, the first element corresponding to $\alpha$, and the second $\beta$. 
+
+```{r q5}
+
+```
+
+### Question 6
+
+Calculate the number of transitions and transversions between the two sequences using some lines of code (`if` statements will be useful). Plot the log-likelihood function for varying $\alpha$ and $\beta$ values in a contour plot. Approximately where is the maximum likelihood estimate?
+
+```{r q6 part 1}
+# number of transitions & transversions
+dt <- NULL
+dv <- NULL
+```
+
+```{r q6 part 2}
+a <- seq(0, 1, by=0.01)
+a <- a[-1]
+b <- a
+
+likelihood_grid <- matrix(NA, length(a), length(b))
+
+# fill in the likelihood grid, similar to how we did in lab
+```
+
+### Question 7
+
+With starting values of 0.5 for both $\alpha$ and $\beta$, use the `optim()` function in R to optimize this log-likelihood function for $\alpha$ and $\beta$. Does this value match the one observed in the plot?
+
+```{r q7}
+
+```
+
+
+
+
+
+
