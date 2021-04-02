@@ -1,0 +1,68 @@
+---
+title: "IB 120/201 - Homework 10"
+author: 'GSI: Ksenia Arzumanova'
+date: 'Due: April 9, 2021 by 12:59pm PST'
+output:
+  html_document: default
+  pdf_document: default
+subtitle: Bootstrapping
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Question 1
+Load the `iris` dataset, and find the mean and SEM of the `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`.
+
+```{r q1}
+meanSepLen <- NULL
+meanSepWid <- NULL
+meanPetLen <- NULL
+meanPetWid <- NULL
+
+semSepLen <- NULL
+semSepWid <- NULL
+semPetLen <- NULL
+semPetWid <- NULL
+```
+
+### Question 2
+Calculate the variance of `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`.
+
+```{r q2}
+varSepLen <- NULL
+varSepWid <- NULL
+varPetLen <- NULL
+varPetWid <- NULL
+```
+
+### Question 3
+Using the values calculated above, obtain the 95% confidence interval of the mean for `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`. What determines the range of the confidence interval? Report the confidence interval as a vector of the lower and upper bounds : `c(lower bound of CI, upper bound of CI)`.
+
+```{r q3}
+sepLenCI <- NULL
+sepWidCI <- NULL
+petLenCI <- NULL
+petWidCI <- NULL
+```
+
+### Question 4
+Obtain 500 bootstrap samples out of `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`:
+(a) Create a histogram of the bootstrap sample means
+(b) Find the 95% bootstrap confidence intervals
+
+```{r q4}
+
+```
+
+### Question 5
+Perform a t-test between all combinations of the four datasets (that would be a total of 4 choose 2 = 6 combinations). See if there is any statistically significant difference (p < 0.05) between any of the four parameters defining the `iris`. 
+
+```{r q5}
+
+```
+
+
+
+
