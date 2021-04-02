@@ -48,7 +48,7 @@ petWidCI <- NULL
 ```
 
 ### Question 4
-Obtain 500 bootstrap samples out of `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`:
+Using `boot()`, obtain 500 bootstrap samples out of `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`:
 (a) Create a histogram of the bootstrap sample means
 (b) Find the 95% bootstrap confidence intervals
 
